@@ -63,5 +63,9 @@
   <ItemGroup>
     <Build Include="dbo\Tables\Vehiculo.sql" />
     <Build Include="dbo\Tables\MarcaVehiculo.sql" />
+    <Build Include="dbo\StoreProcedure\MarcaVehiculoObtener.sql" />
+    <Build Include="dbo\StoreProcedure\MarcaVehiculoInsertar.sql" />
+    <Build Include="dbo\StoreProcedure\MarcaVehiculoActualizar.sql" />
+    <Build Include="dbo\StoreProcedure\MarcaVehiculoEliminar.sql" />
   </ItemGroup>
 </Project>
