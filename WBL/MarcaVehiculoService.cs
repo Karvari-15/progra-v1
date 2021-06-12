@@ -72,5 +72,42 @@ namespace WBL
                 throw;
             }
         }
+        public async Task<DBEntity> Update(MarcaVehiculoEntity entity)
+        {
+            try
+            {
+                var result = sql.ExecuteAsync(sp: "MarcaVehiculoActualizar", Param: new
+                {
+                    entity.MarcaVehiculoId,
+                    entity.Descripcion,
+                    entity.Estado
+                }
+                 );
+                return await result;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+        public async Task<DBEntity> Delete(MarcaVehiculoEntity entity)
+        {
+            try
+            {
+                var result = sql.ExecuteAsync(sp: "MarcaVehiculoEliminar", Param: new
+                {
+                    entity.MarcaVehiculoId
+                }
+                 );
+                return await result;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
     }
+}
 }
