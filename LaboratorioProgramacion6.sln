@@ -11,7 +11,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Entity", "Entity\Entity.csp
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WBL", "WBL\WBL.csproj", "{2AC9C45E-E48F-470D-BCFB-793D53954B98}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApp", "WebApp\WebApp.csproj", "{E206531A-5A6C-4D0B-9785-52911B5E2987}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApp", "WebApp\WebApp.csproj", "{E206531A-5A6C-4D0B-9785-52911B5E2987}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
