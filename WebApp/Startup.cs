@@ -9,7 +9,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace WebApp
+namespace WebApplicationCore
 {
     public class Startup
     {
@@ -23,7 +23,12 @@ namespace WebApp
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddRazorPages();
+            services.AddDIContainer();
+            services.AddRazorPages().AddJsonOptions(option =>
+            {
+                option.JsonSerializerOptions.DictionaryKeyPolicy = null;
+                option.JsonSerializerOptions.PropertyNamingPolicy = null;
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

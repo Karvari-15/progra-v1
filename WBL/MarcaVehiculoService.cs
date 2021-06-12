@@ -8,7 +8,13 @@ using System.Threading.Tasks;
 
 namespace WBL
 {
-    public class MarcaVehiculoService
+    public interface IMarcaVehiculoService
+    {
+        Task<IEnumerable<MarcaVehiculoEntity>> Get();
+        Task<MarcaVehiculoEntity> GetById(MarcaVehiculoEntity entity);
+    }
+
+    public class MarcaVehiculoService : IMarcaVehiculoService
     {
         private readonly IDataAccess sql;
 
@@ -31,16 +37,34 @@ namespace WBL
             }
         }
 
-        public async Task<MarcaVehiculoEntity>GetById(MarcaVehiculoEntity entity)
+        public async Task<MarcaVehiculoEntity> GetById(MarcaVehiculoEntity entity)
         {
             try
             {
-                var result=sql.QueryFirstAsync<MarcaVehiculoEntity>(sp:"MarcaVehiculoObtener",Param: new
-                    {
-                        entity.MarcaVehiculoId
-                    }
+                var result = sql.QueryFirstAsync<MarcaVehiculoEntity>(sp: "MarcaVehiculoObtener", Param: new
+                {
+                    entity.MarcaVehiculoId
+                }
                  );
-            return await result;
+                return await result;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+        public async Task<DBEntity> Create(MarcaVehiculoEntity entity)
+        {
+            try
+            {
+                var result = sql.ExecuteAsync(sp: "MarcaVehiculoInsertar", Param: new
+                {
+                    entity.Descripcion,
+                    entity.Estado
+                }
+                 );
+                return await result;
             }
             catch (Exception)
             {
