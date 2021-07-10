@@ -5,8 +5,29 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Remove="wwwroot\App\Edit.ts" />
+    <Content Remove="wwwroot\App\MarcaVehiculo\Grid.ts" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\Assets\Plugin\sweetalert\SwalConfig.js" />
+    <None Include="wwwroot\Assets\Plugin\sweetalert\SwalConfig.js.map" />
+    <None Include="wwwroot\Assets\Plugin\sweetalert\sweetalert2%4011.js" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="jQuery" Version="3.6.0" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\Entity\Entity.csproj" />
     <ProjectReference Include="..\WBL\WBL.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <TypeScriptCompile Include="wwwroot\App\MarcaVehiculo\Edit.ts" />
+    <TypeScriptCompile Include="wwwroot\App\MarcaVehiculo\Grid.ts" />
+    <TypeScriptCompile Include="wwwroot\Assets\Plugin\sweetalert\SwalConfig.ts" />
   </ItemGroup>
 
 </Project>

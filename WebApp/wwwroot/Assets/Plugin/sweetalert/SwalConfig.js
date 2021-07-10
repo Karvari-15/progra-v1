@@ -23,7 +23,7 @@ var Toast = Swal.mixin({
     }
 });
 var ComfirmAlert = function (Mensaje, confirmButtonText, Icon, confirmButtonColor, cancelButtonColor) {
-    return Swal.mixin({
+    return Swal.fire({
         title: Mensaje,
         icon: Icon,
         showCancelButton: true,

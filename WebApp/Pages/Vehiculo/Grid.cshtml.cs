@@ -6,26 +6,26 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using WBL;
 using Entity;
-namespace WebApp.Pages.MarcaVehiculo
+namespace WebApp.Pages.Vehiculo
 {
     public class GridModel : PageModel
     {
-        private readonly IMarcaVehiculoService marcaVehiculoService;
+        private readonly IVehiculoService vehiculoService;
 
-        public GridModel(IMarcaVehiculoService marcaVehiculoService)
+        public GridModel(IVehiculoService vehiculoService)
         {
-            this.marcaVehiculoService = marcaVehiculoService;
+            this.vehiculoService = vehiculoService;
         }
 
-        public IEnumerable<MarcaVehiculoEntity> GridList { get; set; } = new List<MarcaVehiculoEntity>();
+        public IEnumerable<VehiculoEntity> GridList { get; set; } = new List<VehiculoEntity>();
         public string Mensaje { get; set; }
 
         public async Task<IActionResult> OnGet()
         {
             try
             {
-                GridList = await marcaVehiculoService.Get();
-                if(TempData.ContainsKey(key:"Msg"))
+                GridList = await vehiculoService.Get();
+                if (TempData.ContainsKey(key: "Msg"))
                 {
                     Mensaje = TempData[key: "Msg"] as string;
                 }
@@ -47,11 +47,11 @@ namespace WebApp.Pages.MarcaVehiculo
         {
             try
             {
-                var result = await marcaVehiculoService.Delete( new()
+                var result = await vehiculoService.Delete(new()
                 {
-                    MarcaVehiculoId = id
-            });
-            if(result.CodeError!=0)
+                    VehiculoId = id
+                });
+                if (result.CodeError != 0)
                 {
                     throw new Exception(result.MsgError);
                 }
